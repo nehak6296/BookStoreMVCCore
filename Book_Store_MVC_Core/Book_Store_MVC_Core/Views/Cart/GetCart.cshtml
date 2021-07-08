@@ -112,13 +112,13 @@
                                 <img src="@Url.Content(@items.Image)" alt="Image" class="book_image" />
                             </div>
                             <div class="container_getcart">
-                                <div class="getcart_field">
+                                <div class="getcart_field bookName">
                                     @items.BookName
                                 </div>
-                                <div class="getcart_field text_size">
+                                <div class="getcart_field text_size by">
                                     By @items.Author
                                 </div>
-                                <div class="getcart_field">
+                                <div class="getcart_field price">
                                     Rs.@items.Price
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
         $(function () {
             $('#cont-id').on('click', function (evt) {
                 evt.preventDefault();
-                $.post('https://localhost:44309/Customer/AddCustomerDetails', $('form').serialize(), function () {
+                $.post('https://localhost:44325/Customer/AddCustomerDetails', $('form').serialize(), function () {
                     document.getElementById("cont-id").style.display = "none";
                     document.getElementById('oder-details').style.display = "block";
                 });

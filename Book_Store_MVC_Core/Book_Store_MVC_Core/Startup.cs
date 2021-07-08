@@ -34,6 +34,11 @@ namespace Book_Store_MVC_Core
             services.AddTransient<IBooksRepo, BooksRepo>();
             services.AddTransient<ICartManager, CartManager>();
             services.AddTransient<ICartRepo, CartRepo>();
+            services.AddTransient<ICustomerManager, CustomerManager>();
+            services.AddTransient<ICustomerRepo, CustomerRepo>();
+
+            //services.AddTransient<IOrdersManager, OrdersManager>();
+            //services.AddTransient<IOrdersRepo, OrdersRepo>();
 
         }
 
