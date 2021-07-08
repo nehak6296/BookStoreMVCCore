@@ -16,7 +16,7 @@ function AddToCart(bookId) {
     console.log(JSON.stringify(requestObject));
     $.ajax({
         type: "POST",
-        url: 'https://localhost:44325/Books/AddToCart',
+        url: 'https://localhost:44325/Cart/AddToCart',
         data: JSON.stringify(requestObject),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -39,4 +39,35 @@ function AddToCart(bookId) {
             alert("Error while inserting data");
         }
     });
+}
+
+function Remove_Cart(CartId) {
+    var removeFromCart = "remove-".concat(CartId);
+    var requestObject = {};
+    requestObject.cartId = CartId;
+
+    $.ajax({
+        type: "POST",
+        url: 'https://localhost:44325/Cart/RemoveFromCart',
+        data: JSON.stringify(requestObject.cartId),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success:
+            function () {
+                //Onclick REMOVE button hide AddToCart button
+                var RemoveButton = document.getElementById('placeid');
+                RemoveButton.style.display = "none";
+                window.location.reload();
+            },
+        error: function () {
+            alert("Error while REMOVING data");
+        }
+    });
+}
+function place_order() {
+    var place_order = document.getElementById('placeid');
+    place_order.style.display = "none";
+
+    var form_name = document.getElementById('form-div-cart');
+    form_name.style.display = "block";
 }

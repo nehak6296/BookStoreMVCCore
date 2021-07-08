@@ -10,9 +10,8 @@
     <div class="box">
         <h2 class="text1">Bookstore</h2>
 
-        @*<h4 class="text2">@Html.ActionLink("Cart", "GetCart", "Cart")</h4>*@
-        <h4 class="text2" id="cart" onclick="GoToCart()">Cart</h4>
-        <h4 class="text2">@Html.ActionLink("WishList", "GetWishList", "WishList")</h4>
+        <h4 class="text2">@Html.ActionLink("Cart", "GetCart", "Cart")</h4>
+               <h4 class="text2">@Html.ActionLink("WishList", "GetWishList", "WishList")</h4>
     </div>
     <div class="books_page">
         <div class="Title">Books</div>
@@ -31,7 +30,9 @@
                                 <div class="bookName">@items.BookName </div>
                                 <div class="by">
                                     by
-                                    <label>@items.Author</label>
+                                    <div>
+                                        <label>@items.Author</label>
+                                    </div>
                                 </div>
                                 <div class="price">Rs.@items.Price</div>
                                 <div class="ButtonsDiv">

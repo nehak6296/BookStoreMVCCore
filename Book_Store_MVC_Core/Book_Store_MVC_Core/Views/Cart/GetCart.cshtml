@@ -1,0 +1,147 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<ModelsLayer.GetCart>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <div class="box">
+            <h2 class="text1">Bookstore</h2>
+        </div>
+        <div class="cart_card">
+            <div class="cart_container">
+               @* <script src="~/js/GetCart.js"></script>*@
+                <h1>
+                    My Cart(@Model.Sum(b => b.CartBookQuantity))
+                </h1>
+                @foreach (var items in Model)
+                {
+                    <div class="card_getcart">
+                        <div class="getcart_field">
+                            <img src="@Url.Content(@items.Image)" alt="Image" class="book_image" />
+                        </div>
+                        <div class="container_getcart">
+                            <div class="getcart_field bookName">
+                                @items.BookName
+                            </div>
+                            <div class="getcart_field text_size by">
+                                By @items.Author
+                            </div>
+                            <div class="getcart_field price">
+                                Rs.@items.Price
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity">
+                        <button class="decrease" onclick="decrement()">-</button>
+                        <input id=demoInput type=number min=0 max=50>
+                        <button class="increase" onclick="increment()">+</button>
+                        <input type="button" value="Remove" id="remove-@items.CartId" onclick="return Remove_Cart(@items.CartId)" class="btn_remove_Cart" />
+                        @* <input type="button" value="Remove" id="remove-@items.CartId" onclick="location.href='@Url.Action("RemoveFromCart","Cart",new{ CartId = @items.CartId})%>'"  class="btn_remove_Cart" />*@
+                    </div>
+                }
+                @*@{bool isUserConnected = string.IsNullOrEmpty(Model.UserId);}*@
+
+                <input type="button" value="PLACE ORDER" id="placeid" class="place-btn" onclick="return place_order()">
+            </div>
+            <div class="cart_container">
+                <div class="customer">
+                    <h3>Customer Details</h3>
+                    <div id="form-div-cart">
+                        <form>
+                            <div class="row">
+                                <div class="Na_me">
+                                    <input type="text" placeholder="Name" name="Name" id="Name" class="form-input" />
+                                </div>
+                                <div class="Phone_number">
+                                    <input type="text" placeholder="PhoneNumber" name="PhoneNumber" id="Num" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="Pin_code">
+                                    <input type="number" placeholder="Pincode" name="Pincode" id="Pincode" />
+                                </div>
+                                <div class="Lo_cality">
+                                    <input type="text" placeholder="Locality" name="Locality" id="Locality" />
+                                </div>
+                            </div>
+
+                            <div class="Address">
+                                <input type="text" placeholder="Address" name="Address" id="Address" />
+                            </div>
+
+                            <div class="row">
+                                <div class="City">
+                                    <input type="text" placeholder="City/Town" name="City" id="City" />
+                                </div>
+                                <div class="Landmark">
+                                    <input type="text" placeholder="Landmark" name="Landmark" id="Landmark" />
+                                </div>
+                            </div>
+                            <div class="fifth_row">
+                                <h4>Type</h4>
+                                <div class="radio-btn">
+                                    <input type="radio" id="Home" name="type" value="Home">
+                                    <label for="Home">Home</label><br>
+                                    <input type="radio" id="Work" name="type" value="Work">
+                                    <label for="Work">Work</label><br>
+                                    <input type="radio" id="Other" name="type" value="Other">
+                                    <label for="Other">Other</label>
+                                </div>
+                            </div>
+                            <div class="continue">
+                                <input type="button" value="CONTINUE" id="cont-id" class="continue-btn">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <div id="checkout">
+                <h3>Order summary</h3>
+                <div id="oder-details">
+                    @foreach (var items in Model)
+                    {
+                        <div class="card_getcart">
+                            <div class="getcart_field">
+                                <img src="@Url.Content(@items.Image)" alt="Image" class="book_image" />
+                            </div>
+                            <div class="container_getcart">
+                                <div class="getcart_field">
+                                    @items.BookName
+                                </div>
+                                <div class="getcart_field text_size">
+                                    By @items.Author
+                                </div>
+                                <div class="getcart_field">
+                                    Rs.@items.Price
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @*<input type="button" value="CHECKOUT" id="checkout-btn"  onclick="location.href='@Url.Action("Checkout","Orders")'">*@
+                    <input type="button" value="CHECKOUT" id="checkout-btn" onclick="Checkout()">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#cont-id').on('click', function (evt) {
+                evt.preventDefault();
+                $.post('https://localhost:44309/Customer/AddCustomerDetails', $('form').serialize(), function () {
+                    document.getElementById("cont-id").style.display = "none";
+                    document.getElementById('oder-details').style.display = "block";
+                });
+            });
+        });
+</script>
+}
