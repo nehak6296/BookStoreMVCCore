@@ -30,6 +30,8 @@ namespace Book_Store_MVC_Core
             services.AddControllersWithViews();
             services.AddTransient<IAccountManager, AccountManager>();
             services.AddTransient<IAccountRepo, AccountRepo>();
+            services.AddTransient<IBooksManager, BooksManager>();
+            services.AddTransient<IBooksRepo, BooksRepo>();
 
         }
 

@@ -77,3 +77,200 @@ Register.cshtml
     display: flex;
     flex-direction: column;
 }
+.BookContent {
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.BookINUP {
+    padding: 15px;
+    margin: 8px;
+}
+/*----------------------------------------
+GetAllBooks
+-----------------------------------------*/
+.box {
+    text-align: center;
+    background: #800000;
+    opacity: 1;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    height: 55px;
+}
+
+.text1 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    float: left;
+    flex-wrap: wrap;
+    margin-left: 200px;
+    color: white;
+    padding-top: 5px;
+}
+.text2 {
+    font-family: 'Poppins', sans-serif;
+    float: right;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-right: 180px;
+    color: white;
+    padding-top: 10px;
+}
+
+
+
+.BookContainer {
+    width: 100%;
+    min-height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.books_page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Title {
+    top: 82px;
+    left: 174px;
+    height: 33px;
+    text-align: left;
+    font: normal normal normal 25px/33px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    padding-left: 16px;
+    margin-left: 13%;
+}
+
+.books {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.book {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.Image {
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 2px 2px 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.book_image {
+    margin-top: 10px;
+    width: 109px;
+    height: 135px;
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.card {
+    width: 235px;
+    display: flex;
+    justify-content: center;
+    margin: 7px;
+}
+.image_background {
+    width: 232px;
+}
+
+.details {
+    padding: 10px;
+}
+
+.bookName {
+    top: 327px;
+    left: 191px;
+    height: 19px;
+    text-align: left;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.by {
+    top: 349px;
+    left: 191px;
+    width: 100px;
+    height: 13px;
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.rating {
+    display: flex;
+    top: 367px;
+    left: 191px;
+    width: 33px;
+    height: 16px;
+    background: #388E3C 0% 0% no-repeat padding-box;
+    border-radius: 1px;
+    opacity: 1;
+    text-align: left;
+    font: normal normal bold 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.rate {
+    margin-left: 28%;
+}
+
+.number {
+    margin-left: 24px;
+    top: 367px;
+    left: 228px;
+    width: 18px;
+    height: 13px;
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.price {
+    top: 388px;
+    left: 191px;
+    width: 48px;
+    height: 16px;
+    text-align: left;
+    font: normal normal bold 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.ButtonsDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.AddtoCartbutton {
+    background: #9f1f1f;
+    color: white;
+    border: 1px solid #ccc;
+}
+
+.wishlistbutton {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+}

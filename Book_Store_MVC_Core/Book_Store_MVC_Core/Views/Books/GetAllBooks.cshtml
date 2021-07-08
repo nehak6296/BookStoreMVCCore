@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ModelsLayer.Books>
+@{
+    ViewBag.Title = "AllBooks";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="box">
+        <h2 class="text1">Bookstore</h2>
+
+        @*<h4 class="text2">@Html.ActionLink("Cart", "GetCart", "Cart")</h4>*@
+        <h4 class="text2" id="cart" onclick="GoToCart()">Cart</h4>
+        <h4 class="text2">@Html.ActionLink("WishList", "GetWishList", "WishList")</h4>
+    </div>
+    <div class="books_page">
+        <div class="Title">Books</div>
+
+        <div class="books">
+            <div class="book">
+                @foreach (var items in Model)
+                {
+                    <div class="card">
+                        <div class="image_background" >
+                            <div class="Image">
+                                <img class="book_image" src=@items.Image alt="Book" />
+                            </div>
+                            <div class="details">
+
+                                <div class="bookName">@items.BookName </div>
+                                <div class="by">
+                                    by
+                                    <label>@items.Author</label>
+                                </div>
+                                <div class="price">Rs.@items.Price</div>
+                                <div class="ButtonsDiv">
+                                    <input type="button" value="ADD TO CART" class="AddtoCartbutton" id="addtoCartBtn-@items.BookId" onclick="AddToCart(@items.BookId)">
+                                    <input type="button" value="WISHLIST" class="Wishlistbutton" id="wishlistBtn-@items.BookId" onclick="AddToWishList(@items.BookId)">
+                                    <input type="button" value="ADDED TO CART" class="AddedToCartbutton" style="display: none; background: #9f1f1f; color: white; width: 100%;" id="addedtocartBtn-@items.BookId">
+                                    <input type="button" value="WISHLISTED" class="btn-primary" id="addedWishListBtn-@items.BookId"style="display: none;">
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+}
