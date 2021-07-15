@@ -7,15 +7,13 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div>
-        <div class="box">
-            <h2 class="text1">Bookstore</h2>
-        </div>
+    <div>       
         <div class="cart_card">
             <div class="cart_container">
                @* <script src="~/js/GetCart.js"></script>*@
                 <h1>
-                    My Cart(@Model.Sum(b => b.CartBookQuantity))
+                    My Cart
+                    @*(@Model.Sum(b => b.CartBookQuantity))*@
                 </h1>
                 @foreach (var items in Model)
                 {

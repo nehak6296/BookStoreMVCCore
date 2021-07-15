@@ -7,7 +7,7 @@ namespace RepositoryLayer.Interfaces
 {    
      public interface IAccountRepo
     {
-        int LoginUser(Login loginModel);
+        bool LoginUser(Login loginModel);
         Register RegisterUser(Register registrationModel);
     }
 }

@@ -86,6 +86,18 @@ Register.cshtml
     padding: 15px;
     margin: 8px;
 }
+
+.layout_header {
+    display: flex;
+    width: 65%;
+    justify-content: flex-end;
+}
+.bg-header {
+    background-color: #800000
+}
+.navbar-color {
+    color: #ffff;
+}
 /*----------------------------------------
 GetAllBooks
 -----------------------------------------*/
@@ -256,6 +268,7 @@ GetAllBooks
     letter-spacing: 0px;
     color: #0A0102;
     opacity: 1;
+    margin-top: 15px;
 }
 
 .ButtonsDiv {

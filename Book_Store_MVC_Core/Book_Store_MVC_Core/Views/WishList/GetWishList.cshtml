@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ModelsLayer.GetWishList>
+
+<body>
+    <div>
+        
+        <script src="~/js/Book.js"></script>
+        <script src="~/js/GetWishList.js"></script>
+        <div class="card">
+            <div class="cart_container">
+                <h1>My WishList(@Model.Sum(b => b.WishListQuantity))</h1>
+                @foreach (var items in Model)
+                {
+                    <div class="card_getcart">
+                        <div class="getcart_field">
+                            <img src="@Url.Content(@items.Image)" alt="Image" class="book_image" />
+                        </div>
+                        <div class="container_getcart">
+                            <div class="getcart_field">
+                                @items.BookName
+                            </div>
+                            <div class="getcart_field text_size">
+                                By @items.Author
+                            </div>
+                            <div class="getcart_field">
+                                Rs.@items.Price
+                            </div>
+                        </div>
+                        <div>
+                            <input type="button" value="Remove" id="remove-@items.WishListId" class="btn-danger" onclick="Remove_WishList(@items.WishListId)">
+                        </div>
+                        <div class="add">
+                            <input type="button" value="ADD TO CART" class="btn-danger" id="cartBtn-@items.BookId" onclick="AddToCartFromWishList(@items.BookId,@items.WishListId)">
+                        </div>
+                        <input type="button" value="ADDED TO CART" class="btn-primary" id="addedCartFromWishListBtn-@items.BookId">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

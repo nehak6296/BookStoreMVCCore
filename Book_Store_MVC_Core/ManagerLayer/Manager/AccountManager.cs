@@ -16,7 +16,7 @@ namespace ManagerLayer.Manager
             this.accountRepo = accountRepo;
         }
 
-        public int LoginUser(Login loginModel)
+        public bool LoginUser(Login loginModel)
         {
             return this.accountRepo.LoginUser(loginModel);
         }

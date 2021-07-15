@@ -15,27 +15,6 @@ namespace Book_Store_MVC_Core.Controllers
         {
             this.customerManager = customerManager;
         }
-
-        [HttpGet]
-        public ActionResult GetAllCustomerDetails(int userId)
-        {
-            try
-            {
-                var result = this.customerManager.GetAllCustomerDetails(userId);
-                if (result != null)
-                {
-                    return Json(new { status = true, Message = "Customers details fetched successfully ..!!!", Data = result });
-                }
-                else
-                {
-                    return Json(new { status = false, Message = "No customer present..!!", Data = result });
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
         [HttpPost]
         public ActionResult AddCustomerDetails(Customer customerObject)
         {
@@ -56,6 +35,27 @@ namespace Book_Store_MVC_Core.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [HttpGet]
+        public ActionResult GetAllCustomerDetails(int userId)
+        {
+            try
+            {
+                var result = this.customerManager.GetAllCustomerDetails(userId);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Customers details fetched successfully ..!!!", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "No customer present..!!", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+       
 
     }
 }

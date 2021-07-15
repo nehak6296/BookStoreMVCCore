@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Checkout</title>
+</head>
+<body>
+    <div class="box">
+        <h2 class="text1">Bookstore</h2>
+    </div>
+    <div class="order-div" id="order-content">
+        <img src="~/Images/order.png" class="order-img" />
+        <h1>Order Placed Successfully</h1>
+        <span>hurry! your order is confired..</span><br>
+        <span> the order id is #123456</span><br>
+        <span>save the order id for further communication </span><br>
+        <input type="button" value="CONTINUE SHOPPING" onclick="location.href = '@Url.Action("GetAllBooks","Books")'" class="continue-btn" />
+    </div>
+</body>
+</html>

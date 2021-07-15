@@ -31,7 +31,7 @@ namespace RepositoryLayer.Repository
                 throw new Exception(exception.Message);
             }
         }
-        public int LoginUser(Login login)
+        public bool LoginUser(Login login)
         {
             try
             {
@@ -49,18 +49,19 @@ namespace RepositoryLayer.Repository
                 {
                     while (reader.Read())
                     {
-                        //string Email = reader["Email"].ToString();
-                        //string Password = reader["Password"].ToString();
-                        int UserId = Convert.ToInt32(reader["UserId"]);
+                        string Email = reader["Email"].ToString();
+                        string Password = reader["Password"].ToString();
+                        //int UserId = Convert.ToInt32(reader["UserId"]);
 
-                        if (UserId != 0)
-                        {
-                            return UserId;
-                        }
+                        //if (UserId != 0)
+                        //{
+                        //    return UserId;
+                        //}
+                        return true;
                     }
                 }
                 connection.Close();
-                return 0;
+                return false;
 
             }
             catch (Exception ex)

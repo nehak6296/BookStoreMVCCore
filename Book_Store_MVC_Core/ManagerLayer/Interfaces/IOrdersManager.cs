@@ -5,10 +5,9 @@ using System.Text;
 
 namespace ManagerLayer.Interfaces
 {
-    public interface IAccountManager
+    public interface IOrdersManager
     {
-        Register RegisterUser(Register registrationModel);
-        bool LoginUser(Login loginModel);
+        Orders Checkout(Orders orders);
 
     }
 }

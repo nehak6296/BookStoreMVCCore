@@ -1,4 +1,5 @@
 ﻿using ManagerLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelsLayer;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Book_Store_MVC_Core.Controllers
 {
+   
     public class CartController : Controller
     {
         private readonly ICartManager cartManager;
@@ -15,13 +17,14 @@ namespace Book_Store_MVC_Core.Controllers
         {
             this.cartManager = cartManager;
         }
-        public ActionResult GetCart()
-        {
-            return View();
-        }
-        //GET: Cart       
+        //public ActionResult GetCart()
+        //{
+        //    return View();
+        //}
+        //GET: Cart
+        [Authorize]
         [HttpGet]
-        public ViewResult GetCart(Cart cart)
+        public ViewResult GetCart()
         {
             try
             {
@@ -33,7 +36,6 @@ namespace Book_Store_MVC_Core.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
         [HttpPost]
         public JsonResult AddToCart([FromBody] Cart cart)
         {
